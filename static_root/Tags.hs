@@ -1,0 +1,1 @@
+../src/Hakyll/Web/Bulma/Tags.hs

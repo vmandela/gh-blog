@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="columns">
+
+        <div class="column content is-10">
+<!-- Do not indent this. It will mess up the indentation for preformatted code -->
+$body$
+        </div>
+
+        <div class="column is-narrow menu">
+            <div class="sidebar">
+                <p class="menu-label">Root</p>
+                <ul class="menu-list">
+                    <li> <a href="/">Home</a> </li>
+                    <li> <a href="/about.html">About</a> </li>
+                </ul>
+                $if(toc)$
+                <p class="menu-label">Sections</p>
+                <div class="menu-list">
+                <ul>
+                    <li> <a href="#">Top of the Page</a> </li>
+                </ul>
+                $toc$
+                </div>
+                $endif$
+            </div>
+        </div>
+
+    </div>
+</div>

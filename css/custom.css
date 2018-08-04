@@ -1,0 +1,46 @@
+/* SPDX-License-Identifier: MIT */
+/* Copyright (C) 2019-2020 Venkateswara Rao Mandela */
+.sidebar {
+    position: sticky;
+    top: 50px;
+}
+.content a:not(.anchorjs-link):hover {
+    background-color: yellow;
+}
+.content a:not(.anchorjs-link):hover code {
+    background-color: transparent;
+}
+
+/* Hide the anchor on headings in link text in sidebar */
+.sidebar ul li span {
+    display: none
+}
+
+@media screen and (max-width: 1024px) {
+    body {
+        margin-left: 10px;
+        margin-right: 10px;
+    };
+}
+
+.title ~ .info {
+    margin-top: -1.4rem;
+    margin-bottom: 1rem;
+}
+
+/* The two CSS blocks below are derived from AnchorJS sources.*/
+/* Reused under MIT License, (C) Bryan Braun */
+/* https://github.com/bryanbraun/anchorjs/blob/e084f4c8c70e620cbd65290c279c6c55ed6233eb/anchor.js#L303-L314 */
+/* Make the anchor transparent by default */
+.anchorjs-link {
+    opacity: 0;
+    text-decoration: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Make the anchor opaque on hover */
+*:hover > .anchorjs-link,
+.anchorjs-link:focus  {
+    opacity: 1;
+}

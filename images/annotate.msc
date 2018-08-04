@@ -1,0 +1,34 @@
+msc {
+
+    A15 [label="A15"], m4 [label="M4"], notes [linecolor="white",label=""];
+
+    A15 box A15 [label="ROM execution"],
+    notes box notes [label="ROM executes as soon as
+    device is powered on", linecolor="white"];
+
+    |||;
+
+    A15 -> A15 [label="SBL start"],
+    notes box notes [label="ROM fetches SBL from SD card and
+    starts executing it", linecolor="white"];
+
+    |||;
+
+    A15 -> m4 [label="M4 start"],
+    notes box notes [label="SBL fetches M4 binary
+    from SD card and starts M4 core", linecolor="white"];
+
+    |||;
+
+    A15 -> A15 [label="Start loading\nLinux"],
+    m4 box m4 [label="Start Video Capture\nand\nDisplay"],
+    notes box notes [label="M4 executes in parallel with A15 loading Linux",
+    linecolor="white"];
+
+    A15 box A15 [label="Linux starts"];
+
+    A15 -> m4, m4 -> A15 [label="IPC Handshake"],
+    notes box notes [label="Linux only does a handshake with M4
+    instead of trying to load M4", linecolor="white"];
+
+}

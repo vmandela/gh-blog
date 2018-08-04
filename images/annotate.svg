@@ -1,0 +1,185 @@
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"
+ width="600px" height="263px"
+ viewBox="0 0 600 263"
+ xmlns="http://www.w3.org/2000/svg" shape-rendering="crispEdges"
+ stroke-width="1" text-rendering="geometricPrecision">
+<polygon fill="white" points="88,7 110,7 110,16 88,16"/>
+<text x="100" y="16" textLength="21" font-family="Helvetica" font-size="12" fill="black" text-anchor="middle">
+
+A15
+</text>
+<polygon fill="white" points="290,7 308,7 308,16 290,16"/>
+<text x="300" y="16" textLength="17" font-family="Helvetica" font-size="12" fill="black" text-anchor="middle">
+
+M4
+</text>
+<polygon fill="white" points="498,7 500,7 500,16 498,16"/>
+<text x="500" y="16" textLength="0" font-family="Helvetica" font-size="12" fill="black" text-anchor="middle">
+
+
+</text>
+<line x1="100" y1="22" x2="100" y2="50" stroke="black"/>
+<line x1="300" y1="22" x2="300" y2="50" stroke="black"/>
+<line x1="500" y1="22" x2="500" y2="50" stroke="white"/>
+<polygon fill="white" points="8,22 192,22 192,44 8,44"/>
+<line x1="8" y1="22" x2="192" y2="22" stroke="black"/>
+<line x1="8" y1="44" x2="192" y2="44" stroke="black"/>
+<line x1="8" y1="22" x2="8" y2="44" stroke="black"/>
+<line x1="192" y1="22" x2="192" y2="44" stroke="black"/>
+<polygon fill="white" points="57,29 142,29 142,38 57,38"/>
+<text x="58" y="38" textLength="83" font-family="Helvetica" font-size="12" fill="black">
+ROM execution
+</text>
+<polygon fill="white" points="408,22 592,22 592,44 408,44"/>
+<line x1="408" y1="22" x2="592" y2="22" stroke="white"/>
+<line x1="408" y1="44" x2="592" y2="44" stroke="white"/>
+<line x1="408" y1="22" x2="408" y2="44" stroke="white"/>
+<line x1="592" y1="22" x2="592" y2="44" stroke="white"/>
+<polygon fill="white" points="428,23 571,23 571,32 428,32"/>
+<text x="429" y="32" textLength="141" font-family="Helvetica" font-size="12" fill="black">
+ROM executes as soon as
+</text>
+<polygon fill="white" points="442,34 557,34 557,43 442,43"/>
+<text x="443" y="43" textLength="113" font-family="Helvetica" font-size="12" fill="black">
+device is powered on
+</text>
+<line x1="100" y1="50" x2="100" y2="67" stroke="black"/>
+<line x1="300" y1="50" x2="300" y2="67" stroke="black"/>
+<line x1="500" y1="50" x2="500" y2="67" stroke="white"/>
+<line x1="100" y1="67" x2="100" y2="95" stroke="black"/>
+<line x1="300" y1="67" x2="300" y2="95" stroke="black"/>
+<line x1="500" y1="67" x2="500" y2="95" stroke="white"/>
+<path d="M 100 84 A98,6 0 0,1 100,72" stroke="black" fill="none"/><line x1="100" y1="84" x2="90" y2="90" stroke="black"/>
+<polygon fill="white" points="100,68 151,68 151,77 100,77"/>
+<text x="101" y="77" textLength="49" font-family="Helvetica" font-size="12" fill="black">
+SBL start
+</text>
+<polygon fill="white" points="408,67 592,67 592,89 408,89"/>
+<line x1="408" y1="67" x2="592" y2="67" stroke="white"/>
+<line x1="408" y1="89" x2="592" y2="89" stroke="white"/>
+<line x1="408" y1="67" x2="408" y2="89" stroke="white"/>
+<line x1="592" y1="67" x2="592" y2="89" stroke="white"/>
+<polygon fill="white" points="413,68 585,68 585,77 413,77"/>
+<text x="414" y="77" textLength="170" font-family="Helvetica" font-size="12" fill="black">
+ROM fetches SBL from SD card
+</text>
+<polygon fill="white" points="440,79 559,79 559,88 440,88"/>
+<text x="441" y="88" textLength="117" font-family="Helvetica" font-size="12" fill="black">
+and starts executing it
+</text>
+<line x1="100" y1="95" x2="100" y2="112" stroke="black"/>
+<line x1="300" y1="95" x2="300" y2="112" stroke="black"/>
+<line x1="500" y1="95" x2="500" y2="112" stroke="white"/>
+<line x1="100" y1="112" x2="100" y2="140" stroke="black"/>
+<line x1="300" y1="112" x2="300" y2="140" stroke="black"/>
+<line x1="500" y1="112" x2="500" y2="140" stroke="white"/>
+<line x1="100" y1="123" x2="300" y2="123" stroke="black"/>
+<line x1="300" y1="123" x2="290" y2="129" stroke="black"/>
+<polygon fill="white" points="177,113 222,113 222,122 177,122"/>
+<text x="178" y="122" textLength="43" font-family="Helvetica" font-size="12" fill="black">
+M4 start
+</text>
+<polygon fill="white" points="408,112 592,112 592,134 408,134"/>
+<line x1="408" y1="112" x2="592" y2="112" stroke="white"/>
+<line x1="408" y1="134" x2="592" y2="134" stroke="white"/>
+<line x1="408" y1="112" x2="408" y2="134" stroke="white"/>
+<line x1="592" y1="112" x2="592" y2="134" stroke="white"/>
+<polygon fill="white" points="414,113 584,113 584,122 414,122"/>
+<text x="415" y="122" textLength="168" font-family="Helvetica" font-size="12" fill="black">
+SBL fetches M4 binary from SD
+</text>
+<polygon fill="white" points="435,124 563,124 563,133 435,133"/>
+<text x="436" y="133" textLength="126" font-family="Helvetica" font-size="12" fill="black">
+card and starts M4 core
+</text>
+<line x1="100" y1="140" x2="100" y2="157" stroke="black"/>
+<line x1="300" y1="140" x2="300" y2="157" stroke="black"/>
+<line x1="500" y1="140" x2="500" y2="157" stroke="white"/>
+<line x1="100" y1="157" x2="100" y2="196" stroke="black"/>
+<line x1="300" y1="157" x2="300" y2="196" stroke="black"/>
+<line x1="500" y1="157" x2="500" y2="196" stroke="white"/>
+<path d="M 100 179 A98,6 0 0,1 100,167" stroke="black" fill="none"/><line x1="100" y1="179" x2="90" y2="185" stroke="black"/>
+<polygon fill="white" points="100,163 169,163 169,172 100,172"/>
+<text x="101" y="172" textLength="67" font-family="Helvetica" font-size="12" fill="black">
+Start loading
+</text>
+<polygon fill="white" points="100,174 131,174 131,183 100,183"/>
+<text x="101" y="183" textLength="29" font-family="Helvetica" font-size="12" fill="black">
+Linux
+</text>
+<polygon fill="white" points="208,157 392,157 392,190 208,190"/>
+<line x1="208" y1="157" x2="392" y2="157" stroke="black"/>
+<line x1="208" y1="190" x2="392" y2="190" stroke="black"/>
+<line x1="208" y1="157" x2="208" y2="190" stroke="black"/>
+<line x1="392" y1="157" x2="392" y2="190" stroke="black"/>
+<polygon fill="white" points="246,158 353,158 353,167 246,167"/>
+<text x="247" y="167" textLength="105" font-family="Helvetica" font-size="12" fill="black">
+Start Video Capture
+</text>
+<polygon fill="white" points="288,169 310,169 310,178 288,178"/>
+<text x="289" y="178" textLength="20" font-family="Helvetica" font-size="12" fill="black">
+and
+</text>
+<polygon fill="white" points="279,180 320,180 320,189 279,189"/>
+<text x="280" y="189" textLength="39" font-family="Helvetica" font-size="12" fill="black">
+Display
+</text>
+<polygon fill="white" points="408,157 592,157 592,190 408,190"/>
+<line x1="408" y1="157" x2="592" y2="157" stroke="white"/>
+<line x1="408" y1="190" x2="592" y2="190" stroke="white"/>
+<line x1="408" y1="157" x2="408" y2="190" stroke="white"/>
+<line x1="592" y1="157" x2="592" y2="190" stroke="white"/>
+<polygon fill="white" points="412,163 586,163 586,172 412,172"/>
+<text x="413" y="172" textLength="172" font-family="Helvetica" font-size="12" fill="black">
+M4 executes in parallel with A15
+</text>
+<polygon fill="white" points="463,174 536,174 536,183 463,183"/>
+<text x="464" y="183" textLength="71" font-family="Helvetica" font-size="12" fill="black">
+loading Linux
+</text>
+<line x1="100" y1="196" x2="100" y2="224" stroke="black"/>
+<line x1="300" y1="196" x2="300" y2="224" stroke="black"/>
+<line x1="500" y1="196" x2="500" y2="224" stroke="white"/>
+<polygon fill="white" points="8,196 192,196 192,218 8,218"/>
+<line x1="8" y1="196" x2="192" y2="196" stroke="black"/>
+<line x1="8" y1="218" x2="192" y2="218" stroke="black"/>
+<line x1="8" y1="196" x2="8" y2="218" stroke="black"/>
+<line x1="192" y1="196" x2="192" y2="218" stroke="black"/>
+<polygon fill="white" points="68,203 131,203 131,212 68,212"/>
+<text x="69" y="212" textLength="61" font-family="Helvetica" font-size="12" fill="black">
+Linux starts
+</text>
+<line x1="100" y1="224" x2="100" y2="263" stroke="black"/>
+<line x1="300" y1="224" x2="300" y2="263" stroke="black"/>
+<line x1="500" y1="224" x2="500" y2="263" stroke="white"/>
+<line x1="100" y1="240" x2="300" y2="240" stroke="black"/>
+<line x1="300" y1="240" x2="290" y2="246" stroke="black"/>
+<line x1="300" y1="240" x2="100" y2="240" stroke="black"/>
+<line x1="100" y1="240" x2="110" y2="246" stroke="black"/>
+<polygon fill="white" points="156,230 242,230 242,239 156,239"/>
+<text x="157" y="239" textLength="84" font-family="Helvetica" font-size="12" fill="black">
+IPC Handshake
+</text>
+<polygon fill="white" points="408,224 592,224 592,257 408,257"/>
+<line x1="408" y1="224" x2="592" y2="224" stroke="white"/>
+<line x1="408" y1="257" x2="592" y2="257" stroke="white"/>
+<line x1="408" y1="224" x2="408" y2="257" stroke="white"/>
+<line x1="592" y1="224" x2="592" y2="257" stroke="white"/>
+<polygon fill="white" points="421,225 578,225 578,234 421,234"/>
+<text x="422" y="234" textLength="155" font-family="Helvetica" font-size="12" fill="black">
+Linux only does a handshake
+</text>
+<polygon fill="white" points="414,236 585,236 585,245 414,245"/>
+<text x="415" y="245" textLength="169" font-family="Helvetica" font-size="12" fill="black">
+with M4 instead of trying to load
+</text>
+<polygon fill="white" points="490,247 509,247 509,256 490,256"/>
+<text x="491" y="256" textLength="17" font-family="Helvetica" font-size="12" fill="black">
+M4
+</text>
+<line x1="100" y1="257" x2="100" y2="263" stroke="black"/>
+<line x1="300" y1="257" x2="300" y2="263" stroke="black"/>
+<line x1="500" y1="257" x2="500" y2="263" stroke="white"/>
+</svg>
