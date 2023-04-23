@@ -1,5 +1,5 @@
 {-# LANGUAGE QuasiQuotes #-}
-import           Text.Pandoc
+import           Text.Pandoc as Pandoc
 import           Text.Pandoc.Walk
 import           Text.Pandoc.Definition
 import qualified Data.Text                     as T
@@ -8,6 +8,14 @@ import           Data.Either
 import           Data.Char                      ( toUpper )
 import           Text.RawString.QQ
 import           Text.Pandoc.AnchorJS
+
+fname = "templates/bootstrap.html"
+-- tempStr Pandoc.Template
+tempStr = T.pack "$toc$\n$body$"
+tocTemplate =
+        either error id $ either (error . show) id $
+        Pandoc.runPure $ Pandoc.runWithDefaultPartials $
+        Pandoc.compileTemplate fname tempStr
 
 inp :: String
 inp = [r|Hello World
@@ -28,7 +36,7 @@ Its been a long time
 
 ropt = defaultHakyllReaderOptions
 wopt = defaultHakyllWriterOptions { writerTableOfContents = True
-                                  , writerTemplate        = Just "$toc$\n$body$"
+                                   , writerTemplate        = Just tocTemplate
                                   }
 syntree = runPure (readMarkdown ropt $ T.pack inp)
 
