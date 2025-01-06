@@ -26,6 +26,14 @@ Package vs Crate vs Module vs Workspace
   The entry point is referred to as crate root.
 - Crate root can define modules. Module source can be at `src/mod_name.rs`.
 - A module can define submodules. Submodules are found at `src/mod_name/submod_name.rs`.
+- There is no makefile equivalent for a crate. The files to be compiled are inferred from the crate root.
+- A workspace is a cargo supported way to develop multiple closely related packages together.
+
+At a high level,
+
+- Workspace has multiple packages.
+- One package has 1 library crate plus some related application.
+- Each crate can define some modules and submodules.
 
 ## KConfig
 
@@ -60,3 +68,7 @@ fn handle_version()
     }
 }
 ~~~
+
+# Links
+
+1. https://doc.rust-lang.org/book/appendix-04-useful-development-tools.html
