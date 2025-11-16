@@ -107,6 +107,42 @@ and reveal them on hover.
 Here are the links to [haskell source](/static_root/AnchorJS.hs)
 and [css file](/css/custom.css).
 
+## Fixing the Table of Contents Problem
+
+Sometime after I made the anchor links change, I upgraded the version on pandoc 
+and hakyll I was using.
+This caused the "#" used the in the anchors to also show in the sidebar.
+The "#" showed up without any additional html element attached to it.
+
+I considered splitting the hakyll build pipeline into two
+
+1. First pipeline generates the table of contents from markdown.
+2. Second pipeline applies the anchorlinks transforms and generates the body.
+
+Both the pipelines get combined to form the final output.
+
+Unfortunately my haskell/hakyll skills are not upto the mark. 
+
+I used a simpler solution where the pandoc filter creates an empty link.
+The content of the lnk is populated with a "#" when the mouse hovers over
+the heading.
+This keeps the table of contents clean and the anchor links functional.
+
+### The Solution: CSS-Based Approach
+
+Instead of including "#" in the HTML, use CSS to add it on hover:
+
+1. **Pandoc filter**: Add anchor links with a non-breaking space as content
+   ```haskell
+   addAnchor linkId = Link ("", ["anchorjs-link"], []) [Str "\160"] ("#" ++ linkId, "")
+   ```
+
+2. **CSS**: Use `::after` pseudo-element to show "#" on hover
+   ```css
+   .anchorjs-link::after {
+       content: "#";
+   }
+   ```
 ## References
 
 1. AnchorJS - <https://www.bryanbraun.com/anchorjs/>

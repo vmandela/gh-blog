@@ -20,15 +20,15 @@ import Data.Text (pack, unpack, empty, singleton, Text, cons)
 
 -- Create an anchor based on the string
 -- add anchorjs-link class for CSS manipulations
--- Use "#" as the display for the anchor
+-- Use a non-breaking space as placeholder (CSS will add "#" on hover)
 -- Append linkId to "#" to create the link target
 
 #if MIN_VERSION_pandoc_types(1,21,0)
 addAnchor :: Text -> Inline
-addAnchor linkId = Link (empty, [( pack "anchorjs-link" )], []) [Str (pack " #")] ( (cons  '#'  linkId), empty)
+addAnchor linkId = Link (empty, [( pack "anchorjs-link" )], []) [Str (pack "\160")] ( (cons  '#'  linkId), empty)
 #else
 addAnchor :: String -> Inline
-addAnchor linkId = Link ("", ["anchorjs-link"], []) [Str " #"] ("#" ++ linkId, "")
+addAnchor linkId = Link ("", ["anchorjs-link"], []) [Str "\160"] ("#" ++ linkId, "")
 #endif
 
 -- Add a anchor link to each html header

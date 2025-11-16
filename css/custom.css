@@ -28,7 +28,7 @@
     margin-bottom: 1rem;
 }
 
-/* The two CSS blocks below are derived from AnchorJS sources.*/
+/* The CSS blocks below are derived from AnchorJS sources.*/
 /* Reused under MIT License, (C) Bryan Braun */
 /* https://github.com/bryanbraun/anchorjs/blob/e084f4c8c70e620cbd65290c279c6c55ed6233eb/anchor.js#L303-L314 */
 /* Make the anchor transparent by default */
@@ -43,4 +43,9 @@
 *:hover > .anchorjs-link,
 .anchorjs-link:focus  {
     opacity: 1;
+}
+
+/* Add "#" character via CSS on hover */
+.anchorjs-link::after {
+    content: "#";
 }
