@@ -86,6 +86,7 @@ copyDirs =
   [ "patches/**"
   , "images/**"
   , "js/**"
+  , "fonts/**"
   , "favicon.ico"
   , "generatedimages/**"
   , "CNAME"
