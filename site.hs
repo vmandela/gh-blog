@@ -195,6 +195,12 @@ main = hakyll $ do
       posts <- fmap (take 10) . recentFirst =<< loadAllSnapshots allPattern "content"
       renderRss feedConfiguration feedCtx posts
 
+  create ["atom.xml"] $ do
+    route idRoute
+    compile $ do
+      posts <- fmap (take 10) . recentFirst =<< loadAllSnapshots allPattern "content"
+      renderAtom feedConfiguration feedCtx posts
+
   match ("static_root/*" .||. "static_root/.gitignore*") $ do
     route (gsubRoute "static_root/" (const ""))
     compile copyFileCompiler
