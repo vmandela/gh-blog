@@ -2,6 +2,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 import           Data.Monoid                    ( mappend )
 import           Hakyll
+import           Hakyll.Web.Feed
 import qualified Data.Set                      as S
 import           Text.Pandoc                   as Pandoc
 import           Text.Pandoc.Options
@@ -82,6 +83,15 @@ postDirs = ["posts/*", "blog/**"]
 postPattern = foldr1 (.||.) (map fromGlob postDirs)
 allPattern = foldr1 (.||.) (map fromGlob (postDirs))
 
+feedConfiguration :: FeedConfiguration
+feedConfiguration = FeedConfiguration
+  { feedTitle       = "Venkat Mandela's Blog"
+  , feedDescription = "Posts about programming, Linux, and technology"
+  , feedAuthorName  = "Venkat Mandela"
+  , feedAuthorEmail = "venkat.mandela@gmail.com"
+  , feedRoot        = "https://vmandela.com"
+  }
+
 copyDirs =
   [ "patches/**"
   , "images/**"
@@ -159,6 +169,7 @@ main = hakyll $ do
     compile
       $   pandocHTMLCompiler
       >>= loadAndApplyTemplate "templates/post.html"    (postCtxWithTags tags)
+      >>= saveSnapshot "content"
       >>= loadAndApplyTemplate "templates/default.html" (postCtxWithTags tags)
       >>= relativizeUrls
 
@@ -178,6 +189,12 @@ main = hakyll $ do
 
   match "templates/*.html" $ compile templateCompiler
 
+  create ["rss.xml"] $ do
+    route idRoute
+    compile $ do
+      posts <- fmap (take 10) . recentFirst =<< loadAllSnapshots allPattern "content"
+      renderRss feedConfiguration feedCtx posts
+
   match ("static_root/*" .||. "static_root/.gitignore*") $ do
     route (gsubRoute "static_root/" (const ""))
     compile copyFileCompiler
@@ -189,3 +206,6 @@ postCtx = dateField "date" "%B %e, %Y" `mappend` defaultContext
 postCtxWithTags :: Tags -> Context String
 postCtxWithTags tags =
   (tagsFieldBulma "tag is-link") "tags" tags `mappend` postCtx
+
+feedCtx :: Context String
+feedCtx = postCtx `mappend` bodyField "description"
