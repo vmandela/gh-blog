@@ -23,6 +23,7 @@ import           Text.Pandoc.AnchorJS
 import           Hakyll.Web.Bulma.Tags
 import           Text.Pandoc.LocalUtils
 import           Data.Text  (pack)
+import           Data.Time.Format (defaultTimeLocale, formatTime, parseTimeM)
 --------------------------------------------------------------------------------
 
 fname = "templates/bootstrap.html"
@@ -206,8 +207,24 @@ main = hakyll $ do
     compile copyFileCompiler
 
 --------------------------------------------------------------------------------
+-- | A version of dateField that doesn't fail if the field is missing
+optionalDateField :: String -> String -> Context a
+optionalDateField key format = field key $ \i -> do
+    time <- getMetadataField (itemIdentifier i) key
+    case time of
+        Nothing -> noResult ""
+        Just t -> do
+            let parsedTime = parseTimeM True defaultTimeLocale "%Y-%m-%d" t :: Maybe UTCTime
+            case parsedTime of
+                Nothing -> fail $ "Could not parse time: " ++ t
+                Just ut -> return $ formatTime defaultTimeLocale format ut
+
 postCtx :: Context String
-postCtx = dateField "date" "%B %e, %Y" `mappend` defaultContext
+postCtx = mconcat
+    [ dateField "date" "%B %e, %Y"
+    , optionalDateField "updated" "%B %e, %Y"
+    , defaultContext
+    ]
 
 postCtxWithTags :: Tags -> Context String
 postCtxWithTags tags =
