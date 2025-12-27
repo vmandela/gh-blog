@@ -23,6 +23,8 @@ import           Text.Pandoc.AnchorJS
 import           Hakyll.Web.Bulma.Tags
 import           Text.Pandoc.LocalUtils
 import           Data.Text  (pack)
+import           Data.Time.Format (defaultTimeLocale, formatTime, parseTimeM)
+import           Data.Time.Clock (UTCTime)
 --------------------------------------------------------------------------------
 
 fname = "templates/bootstrap.html"
@@ -206,8 +208,29 @@ main = hakyll $ do
     compile copyFileCompiler
 
 --------------------------------------------------------------------------------
+-- | Get the last commit date from Git for a given file.
+gitLastUpdated :: Context String
+gitLastUpdated = field "updated" $ \item -> do
+    let path = toFilePath $ itemIdentifier item
+    mtime <- unsafeCompiler $ do
+        out <- readProcess "git" ["log", "-1", "--format=%ai", "--", path] ""
+        return $ case lines out of
+            [l] -> Just l
+            _   -> Nothing
+    case mtime of
+        Nothing -> noResult "No git time"
+        Just t -> do
+            let parsedTime = parseTimeM True defaultTimeLocale "%Y-%m-%d %H:%M:%S %z" t :: Maybe UTCTime
+            case parsedTime of
+                Nothing -> noResult "Could not parse git time"
+                Just ut -> return $ formatTime defaultTimeLocale "%B %e, %Y" ut
+
 postCtx :: Context String
-postCtx = dateField "date" "%B %e, %Y" `mappend` defaultContext
+postCtx = mconcat
+    [ dateField "date" "%B %e, %Y"
+    , gitLastUpdated
+    , defaultContext
+    ]
 
 postCtxWithTags :: Tags -> Context String
 postCtxWithTags tags =
