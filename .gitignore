@@ -16,3 +16,4 @@ generatedimages/*
 dist/
 dist-newstyle/
 *~
+.direnv/
